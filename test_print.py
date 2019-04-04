@@ -1,6 +1,10 @@
 from urllib.request import urlopen
+import re
 
 html = urlopen(
-    "http://www.louz.club/%E8%B1%86%E7%93%A3Top100_TODO.html"
+    "https://morvanzhou.github.io/static/scraping/basic-structure.html"
 ).read().decode('utf-8')
 print(html)
+
+res = re.findall(r"<title>(.+?)</title>",html)
+print("\nPage title is：",res[0])
